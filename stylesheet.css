@@ -59,7 +59,7 @@ body{
 
 /*キービジュアル*/
 .top-kv{
-    margin-left: 0 auto;
+    margin: 0 auto;
     background-color: var(--color-bg-blue);
     padding: 40px 0;
 }
