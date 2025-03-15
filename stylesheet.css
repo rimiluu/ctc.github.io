@@ -16,7 +16,8 @@
     --color-font-base: #4c566a;
     --color-logo: #4c566a;
 }
-/*フォント*/
+
+/* フォント */
 :root{
     --font-family-base: "Noto Sans JP", sans-serif;
 }
@@ -25,22 +26,30 @@
 /* 全体共通のスタイル */
 /* ------------------------------ */
 
-html{
+html {
     background-color: var(--color-bg-base);
 }
 
-body{
+body {
     line-height: 1.75;
     font-size: 14px;
-    color: var(--font-family-base);
+    color: var(--color-font-base); /* 修正 */
+    font-family: var(--font-family-base); /* 追加 */
 }
 
-/*キービジュアル*/
-.top-kv{
-    display: flex; /* フレックスボックスを使用 */
-    justify-content: center; /* 水平方向に中央配置 */
-    align-items: center; /* 垂直方向に中央配置（必要なら） */
-    margin: 0 auto;
+/* キービジュアル */
+.top-kv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: var(--color-bg-blue);
     padding: 40px 0;
+    min-height: 200px; /* 高さを確保 */
+    width: 100%; /* 横幅を最大化 */
+}
+
+.top-kv img {
+    display: block; /* 余白のズレを防ぐ */
+    max-width: 100%;
+    height: auto;
 }
