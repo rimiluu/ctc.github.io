@@ -59,7 +59,15 @@ body{
 
 /*キービジュアル*/
 .top-kv{
+    display: flex; /* フレックスボックスを使用 */
+    justify-content: center; /* 水平方向に中央配置 */
+    align-items: center; /* 垂直方向に中央配置（必要なら） */
     margin: 0 auto;
     background-color: var(--color-bg-blue);
     padding: 40px 0;
+}
+.top-kv-img {
+    display: flex; /* フレックスボックスを適用 */
+    justify-content: center; /* 水平方向に中央配置 */
+    align-items: center; /* 垂直方向に中央配置 */
 }
