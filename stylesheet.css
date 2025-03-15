@@ -44,12 +44,13 @@ body {
     align-items: center;
     background-color: var(--color-bg-blue);
     padding: 40px 0;
+    width: 393px; /* 横幅を固定 */
+    margin: 0 auto; /* 水平方向の中央配置 */
     min-height: 200px; /* 高さを確保 */
-    width: 100%; /* 横幅を最大化 */
 }
 
 .top-kv img {
-    display: block; /* 余白のズレを防ぐ */
+    display: block; /* 余計な余白をなくす */
     max-width: 100%;
     height: auto;
 }
