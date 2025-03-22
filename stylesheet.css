@@ -4,20 +4,15 @@
 
 /* カラー */
 :root{
+    --design-width: 375;
+    --contents-width: 375;
+    --contents-side-padding: 30;
+    --minwidth: 320;
     --color-bg-base: #fff;
-    --color-bg-light: #eceff4;
     --color-bg-blue: #012F76;
-    --color-bg-button: #4c566a;
-    --color-bg-button-hover: #2e3440;
-    --color-bg-icon: #d8dee9;
-    --color-icon: #5e81ac;
-    --color-icon-light: #eceff4;
-    --color-font-light: #eceff4;
-    --color-font-base: #4c566a;
-    --color-logo: #4c566a;
+    --color-bg-gray: #D9D9D9;
 }
-
-/* フォント */
+/*フォント*/
 :root{
     --font-family-base: "Noto Sans JP", sans-serif;
 }
@@ -26,40 +21,336 @@
 /* 全体共通のスタイル */
 /* ------------------------------ */
 
-html {
+html{
     background-color: var(--color-bg-base);
 }
 
-body {
-    line-height: 1.75;
-    font-size: 14px;
-    color: var(--color-font-base); /* 修正 */
-    font-family: var(--font-family-base); /* 追加 */
+body{
+    line-height: 1.5;
+    font-size: 12px;
+    font-family: var(--font-family-base);
+    overflow-x: hidden;
 }
 
-/* キービジュアル */
-.top-kv {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* ------------------------------ */
+/* ちょっとした使い回すスタイル */
+/* ------------------------------ */
+
+.u-visually-hidden{
+    position: absolute !important;
+    white-space: nowrap !important;
+    width: 1px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+    border: 0 !important;
+    padding: 0 !important;
+    clip: rect(0 0 0 0) !important;
+    clip-path: inset(50%) !important;
+    margin: -1px !important;
+}
+
+/*タイトルコンポーネント*/
+.title-moji-en{
+    font-size: 20px;
+    font-weight: 700;
+    margin: 30px 0 5px 0px;
+}
+.title-moji-jp{
+    font-size: 13px;
+    font-weight: bold;
+    margin: 0 0 30px 5px;
+    display: inline-block; /* テキストの長さに応じる */
+    position: relative; /* 擬似要素の基準位置を設定 */
+    padding-bottom: 4px; /* 下線とテキストの間の余白 */
+}
+.title-moji-jp::after {
+    content: ""; /* 擬似要素で下線を作成 */
+    position: absolute;
+    left: -6px; /* 左に6px拡張 */
+    width: calc(100% + 12px); /* テキストの幅 + 12px（左右6pxずつ） */
+    height: 1px; /* 下線の太さ */
+    background-color: var(--color-bg-blue); /* 下線の色 */
+    bottom: 0; /* テキストの真下に配置 */
+}
+
+/*よく使う文字*/
+.normalmoji{
+    font-size: 20px;
+    font-weight: 700;
+}
+
+/*キービジュアル*/
+.top-kv{
     background-color: var(--color-bg-blue);
-    width: 393px; /* 横幅を固定 */
-    height: 608px; /* 高さを固定 */
-    margin: 0 auto; /* ページ中央に配置 */
-    overflow: hidden; /* 画像のはみ出し防止 */
+    padding: 110px 0;
+    margin: 0 auto;
+    text-align: center;
 }
 
-.top-kv img {
-    display: block;
+
+/*企業理念*/
+.topic1-moji{
+    color: var(--color-bg-blue);
+    padding-left: 30px;
+}
+
+.topic1-bigmoji{
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+.komidasi{
+    font-weight: bold;
+    margin: 15px 0 30px 0;
+}
+.learnmore-btn{
+    display: block; /* ブロック要素 */
+    width: fit-content; /* 必要なサイズだけ確保 */
+    margin: 30px auto; /* 左右中央配置 */
+    padding-left: 0; /* 影響をリセット */
+    position: relative; /* 親要素の影響を受けにくくする */
+    left: -15px; /* ずれを補正（必要なら） */
+}
+
+/*事業内容*/
+
+.bussiness{
+    background-color: var(--color-bg-blue);
+    padding: 10px 30px; /* 余白を追加して見やすくする */
+    border-top-left-radius: 60px; /* 左上の角だけ丸くする */
+}
+.midasi{
+    display: block; /* 確実に反映させる */
+    color: var(--color-bg-base);
+}
+.setumei{
+    color: var(--color-bg-base);
+    text-align: center;
+}
+.oomoji{
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+.kaisetu{
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 50px;
+}
+.maruti-final{
+    margin-bottom: 110px;
+    margin-top: 10px;
+    line-height: 2.0;
+}
+.setumei-p{
+    margin: 10px 0;
+    line-height: 2.0;
+}
+
+/*強み*/
+.strength{
+    position: relative;
+    background-color: var(--color-bg-base); /* 白背景 */
+    border-top-left-radius: 60px; /* 左上を丸く */
+    padding: 30px 0 30px 30px;
+    margin-top: -60px; /* .bussiness から少し重ねる */
+    z-index: 10; /* 背景（青）の .bussiness より前面に */
+    color: var(--color-bg-blue);
+}
+.strength-inner{
+    margin-top: -50px;
+}
+@keyframes bgscroll {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: calc(-100vw) 0;
+    }
+}
+.forlife-block {
+    width: 100vw; /* 画面幅の1.5倍 */
     max-width: 100%;
-    max-height: 100%;
-    object-fit: contain; /* 画像の縦横比を維持しつつ収める */
+    height: 360px; /* 高さ */
+    background: url(img/bg_forlife.jpg) repeat-x;
+    background-size: auto 100%;
+    animation: bgscroll 60s linear infinite; /* 背景をスクロール */
+    position: relative;
+    border-top-left-radius: 60px;
+    overflow: hidden; /* はみ出した部分を隠す */
+    margin-bottom: 15px;
+}
+.strength-setumei{
+    font-weight: regular;
+    margin-right: 30px;
+    margin-top: 5px;
+    margin-bottom: 30px;
+}
+.history-block{
+    width: 100%; /* 画面幅の1.5倍 */
+    height: 360px; /* 高さ */
+    background: url(img/history.png) repeat-x;
+    position: relative;
+    border-top-left-radius: 60px;
+}
+/*奨学生*/
+.student{
+    background-color: var(--color-bg-gray);
+    padding: 10px 30px;
+    border-top-left-radius: 60px;
+}
+.student-moji{
+    color: var(--color-bg-blue);
+}
+.student-setumei{
+    font-weight: regular;
+    margin-right: 30px;
+    margin-bottom: 15px;
+}
+.student-scroll {
+    display: flex; /* 子要素を横並びにする */
+    gap: 20px; /* 各画像の間隔 */
+    overflow-x: auto; /* 横スクロールを有効化 */
+    white-space: nowrap; /* 折り返しを防ぐ */
+    -webkit-overflow-scrolling: touch; /* スマホ対応のスムーズスクロール */
+    scroll-snap-type: x mandatory; /* スクロール位置を調整 */
+    padding-bottom: 10px; /* スクロールバーとコンテンツの間に余白 */
+    width: 100%; /* 幅を100%に */
+}
+.student-scroll img {
+    flex-shrink: 0; /* 画像が縮まないようにする */
+    height: 150px; /* 画像の高さを固定 */
+    width: auto; /* 幅は自動調整 */
+    scroll-snap-align: start; /* スクロール時に各アイテムで止まる */
+}
+.overlay {
+    display: none; /* 初期状態は非表示 */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* 背景を暗くする */
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
 }
 
-/* 393×852 の四角 */
-.bottom-box {
-    width: 393px; /* 横幅を固定 */
-    height: 852px; /* 高さを固定 */
-    background-color: var(--color-bg-blue); /* 同じ背景色 */
-    margin: 0 auto; /* ページ中央に配置 */
+.student-scrolltap {
+    display: flex;
+    align-items: center; /* 垂直方向を中央揃え */
+    gap: 10px; /* 矢印とテキストの間隔を調整 */
+    margin: 10px 0 15px 0;
+}
+.scrolltap-arrow{
+    position: relative;
+    display: inline-block;
+    width: 28px; /* 横線の長さ */
+    height: 1.5px; /* 横線の太さ */
+    background-color: var(--color-bg-blue); /* 線の色 */
+    top: 4px;
+}
+.scrolltap-arrow::after{
+    content: "";
+    position: absolute;
+    right: -2.5px;
+    top: -8px; /* 位置調整 */
+    width: 12px; /* 矢印部分の長さ */
+    height: 1.5px; /* 太さ */
+    background-color: #012F76;
+    transform: rotate(45deg); /* 45度回転させる */
+    transform-origin: bottom left; /* 回転の基準点を左下に */
+}
+.scrolltap {
+    font-size: 14px;
+    color: #012F76;
+    margin: 0;
+    white-space: nowrap; /* 改行を防ぐ */
+}
+.student-bottom{
+    margin-bottom: 80px;
+}
+
+/*取り組み*/
+.ctckmc{
+    position: relative;
+    background-color: var(--color-bg-base); /* 白背景 */
+    border-top-left-radius: 60px; /* 左上を丸く */
+    margin-top: -60px; /* .bussiness から少し重ねる */
+    z-index: 10; /* 背景（青）の .bussiness より前面に */
+    color: var(--color-bg-blue);
+    overflow: hidden;
+    width: 100%;
+}
+.ctckmc-inner{
+    padding: 0px 30px 0px 30px;
+}
+.ctckmc-midasi{
+    color: var(--color-bg-blue);
+}
+.ctckmc-normalmoji{
+    color: var(--color-bg-blue);
+    margin-top:30px;
+    margin-bottom: 5px;
+}
+.ctckmc-normalmoji-top{
+    color: var(--color-bg-blue);
+    margin-bottom: 5px;
+}
+@keyframes bgscroll {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: calc(-100vw) 0;
+    }
+}
+.ctckmc-block1{
+    background: url(img/ctckmc1.jpg) repeat-x;
+}
+.ctckmc-block2{
+    background: url(img/ctckmc2.jpg) repeat-x;
+}
+.ctckmc-block3{
+    background: url(img/ctckmc3.jpg) repeat-x;
+}
+.ctckmc-block4{
+    background: url(img/ctckmc4.jpg) repeat-x;
+}
+.ctckmc-block5{
+    background: url(img/ctckmc5.jpg) repeat-x;
+}
+.ctckmc-block1,.ctckmc-block2,.ctckmc-block3,.ctckmc-block4,.ctckmc-block5{
+    width: 100%; /* 画面幅の1.5倍 */
+    height: 150px; /* 適切な高さを設定 */
+    background-size: auto 100%; /* 背景画像を調整 */
+    animation: bgscroll 20s linear infinite; /* `60s linear` に修正 */
+    position: relative;
+    overflow: hidden; /* はみ出た部分を隠す */
+    margin: 15px 0;
+}
+
+.saigo{
+    margin-bottom: 60px;
+}
+
+/*フッター*/
+.footer{
+    color:var(--color-bg-base);
+    background-color: var(--color-bg-blue);
+}
+.footer-moji{
+    text-align: center;
+}
+.thankyou{
+    font-size: 40px;
+    font-weight: 700;
+    padding-top: 20px;
+}
+.good{
+    font-weight: medium;
+    margin-bottom: 15px;
+}
+.footer-p{
+    margin-bottom: 30px;
 }
