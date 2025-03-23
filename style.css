@@ -98,6 +98,7 @@ body{
     font-size: 50px;
     font-weight: 700;
     margin-bottom: 15px;
+    line-height: 1.8;
 }
 .komidasi{
     font-weight: bold;
@@ -204,7 +205,6 @@ body{
 }
 .student-setumei{
     font-weight: regular;
-    margin-right: 30px;
     margin-bottom: 15px;
 }
 .student-scroll {
