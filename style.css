@@ -27,7 +27,7 @@ html{
 
 body{
     line-height: 2.0;
-    font-size: 15px;
+    font-size: 18px;
     font-family: var(--font-family-base);
     overflow-x: hidden;
 }
