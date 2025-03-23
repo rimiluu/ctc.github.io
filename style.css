@@ -75,7 +75,7 @@ body{
 
 /*よく使う文字*/
 .normalmoji{
-    font-size: 25px;
+    font-size: 30px;
     font-weight: 700;
 }
 
@@ -102,7 +102,7 @@ body{
 }
 .komidasi{
     font-weight: bold;
-    margin: 15px 0 30px 0;
+    margin: 15px 0 50px 0;
 }
 .learnmore-btn{
     display: block; /* ブロック要素 */
