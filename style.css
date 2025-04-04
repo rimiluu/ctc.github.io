@@ -156,6 +156,8 @@ body{
 .animation img {
   width: 200px;
   height: auto;
+  max-width: 100%;
+  display: block;
 }
 
 /*強み*/
