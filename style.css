@@ -148,6 +148,13 @@ body{
     line-height: 2.0;
 }
 
+.animation{
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
 /*強み*/
 .strength{
     position: relative;
