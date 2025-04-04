@@ -342,6 +342,19 @@ body{
     overflow: hidden; /* はみ出た部分を隠す */
     margin: 15px 0;
 }
+.video-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px auto;
+}
+
+video {
+  width: 80%;      /* 必要に応じて調整してOK */
+  max-width: 800px;
+  height: auto;
+  border-radius: 10px;
+}
 
 .saigo{
     margin-bottom: 60px;
