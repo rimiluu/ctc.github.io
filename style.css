@@ -152,7 +152,9 @@ body{
     display: flex;
   justify-content: center;
   align-items: center;
-  max-width: 100%;
+}
+.animation img {
+  width: 200px;
   height: auto;
 }
 
