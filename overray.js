@@ -23,3 +23,17 @@ document.addEventListener("DOMContentLoaded", function () {
         overlay.style.display = 'none'; // オーバーレイを非表示
     });
 });
+
+document.querySelectorAll('.thumbnail').forEach(img => {
+  img.addEventListener('click', () => {
+    document.getElementById('overlay').style.display = 'flex';
+    document.getElementById('overlaySvg').src = img.dataset.large;
+    document.body.classList.add('overlay-active'); // ←追加
+  });
+});
+
+document.getElementById('overlay').addEventListener('click', () => {
+  document.getElementById('overlay').style.display = 'none';
+  document.body.classList.remove('overlay-active'); // ←追加
+});
+
