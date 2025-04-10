@@ -284,9 +284,14 @@ body{
     margin-bottom: 80px;
 }
 
-.student-scroll img:hover {
-    filter: brightness(1.15) drop-shadow(0 0 10px #FFA500); /* 明るいオレンジ */
+.student-scroll img {
     transition: filter 0.3s ease;
+}
+
+.student-scroll img:hover,
+.student-scroll img:focus {
+    filter: brightness(1.1) drop-shadow(0 0 8px #FFDAB9); /* 淡くふわっと光る */
+    outline: none; /* フォーカス時の青枠を消す（必要なら） */
 }
 
 
