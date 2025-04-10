@@ -284,6 +284,12 @@ body{
     margin-bottom: 80px;
 }
 
+.student-scroll img:hover {
+    filter: brightness(1.15) drop-shadow(0 0 10px #FFA500); /* 明るいオレンジ */
+    transition: filter 0.3s ease;
+}
+
+
 /*取り組み*/
 .ctckmc{
     position: relative;
